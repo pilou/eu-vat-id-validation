@@ -1,4 +1,7 @@
 <?php
+
+namespace Pilou;
+
 /**
  *  European VAT-ID validation (VIES VAT-ID)
  *  URL: http://ec.europa.eu/taxation_customs/vies

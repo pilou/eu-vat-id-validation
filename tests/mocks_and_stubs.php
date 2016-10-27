@@ -1,6 +1,7 @@
 <?php
-require_once dirname(__FILE__) . '/../src/eu_vat_validation.php';
+require_once dirname(__FILE__) . '/../src/Pilou/EuVatValidation.php';
 
+use Pilou\EuVatValidation;
 
 class EuVatValidationWrapper extends EuVatValidation {
 

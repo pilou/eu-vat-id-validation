@@ -1,13 +1,13 @@
 <?php
 require_once dirname(__FILE__) . '/../vendor/autoload.php';
-require_once dirname(__FILE__) . '/../src/eu_vat_validation.php';
+require_once dirname(__FILE__) . '/../src/Pilou/EuVatValidation.php';
 require_once dirname(__FILE__) . '/mocks_and_stubs.php';
 
-
+use Pilou\EuVatValidation;
 
 /**
  *  Run tests: 
- *  php vendor/phpunit/phpunit/phpunit.php --colors tests/eu_vat_validation_test.php
+ *  php vendor/phpunit/phpunit/phpunit.php --colors tests/EuVatValidationTest.php
  */
 class EuVatValidationTest extends PHPUnit_Framework_TestCase {
 
@@ -51,7 +51,7 @@ class EuVatValidationTest extends PHPUnit_Framework_TestCase {
     // It seems like Travis CI doesn't support accessing external services on run time
     $results = 'soapClientResults' . ($success ? 'Success' : 'Fail');
 
-    $this->vatId->soapClient = $this->getMock('ViesSoapClient');
+    $this->vatId->soapClient = $this->createMock('ViesSoapClient');
     $this->vatId->soapClient->expects($this->any())
                             ->method('checkVat')
                             ->will($this->returnValue($this->$results()));
@@ -108,7 +108,7 @@ class EuVatValidationTest extends PHPUnit_Framework_TestCase {
    */
   public function testClassExistance() {
 
-    $this->assertInstanceOf('EuVatValidation', $this->vatId);
+    $this->assertInstanceOf(EuVatValidation::class, $this->vatId);
   }
 
 
