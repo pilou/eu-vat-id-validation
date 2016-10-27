@@ -1,4 +1,9 @@
 {
+    "name": "pilou/eu-vat-id-validation",
+    "description": "EU VIES VAT Validation",
+    "require": {
+        "php": ">=5.5"
+    },
     "require-dev": {
       "phpunit/phpunit": "5.6.*"
     }
