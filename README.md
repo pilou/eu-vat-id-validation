@@ -1,9 +1,5 @@
-# European VAT number validation ([VIES]) in PHP [![Build Status](https://travis-ci.org/cbmono/eu-vat-id-validation.png?branch=master)](https://travis-ci.org/cbmono/eu-vat-id-validation)
-> [VIES API documentation][VIES API]
-
 ## Getting Started
-
-To start validating VAT-ID's you only need to include `src/eu_vat_validation.php` in your code. All other files and folders are only needed for [PHPUnit] and [unit tests].
+`composer require pilou/eu-vat-id-validation`
 
 ---
 
