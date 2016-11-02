@@ -11,15 +11,11 @@ To start validating VAT-ID's you only need to include `src/eu_vat_validation.php
 
 #### __construct()
 - param: `string` $vatId *[optional]*
-- throws: `SoapFault`
-
-Tries to establish a connection with the SOAP client. 
-If `$vatId` isn't empty, the validation (`$this->validate()`) is triggered right away.
 
 ---
 #### setVatId()
 - param: `string` $vatId
-- throws: `Exception`
+- throws: `\Exception`
 
 Sets the current VAT-ID value and extracts the VAT-Number and the country code from it.
 
@@ -56,8 +52,7 @@ Array (
 ---
 #### isValid()
 - return: `boolean`
-
-Internally triggers `$this->validate()` if it hasn't been executed yet, and returns whether the last set VAT-ID is valid.
+- throws: '\Pilou\EuVat\ServiceUnavailableException'
 
 ---
 
@@ -111,7 +106,7 @@ $vatId->validate();
 print_r($vatId->isValid());             // Output: true
 print_r($vatId->getVatId());            // Output: 'IT01775560442'
 
-print_r($vatId->getVatIdExtended());
+print_r($vatId->toArray());
 
 // Output
 Array (
@@ -128,7 +123,6 @@ Array (
 [VIES]:http://ec.europa.eu/taxation_customs/vies/vatRequest.html
 [VIES API]:http://ec.europa.eu/taxation_customs/vies/checkVatService.wsdl
 [PHPUnit]:https://github.com/sebastianbergmann/phpunit
-[unit tests]:https://github.com/cbmono/eu-vat-id-validation/blob/master/tests/eu_vat_validation_test.php
 
 
 
