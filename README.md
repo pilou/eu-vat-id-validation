@@ -30,7 +30,7 @@ Sets the current VAT-ID value and extracts the VAT-Number and the country code f
 Gets the last set VAT-ID value.
 
 ---
-#### getVatIdExtended()
+#### toArray()
 - return: `array`
 
 Gets the last set VAT-ID value and all associated details:
@@ -54,11 +54,6 @@ Array (
 ```
 
 ---
-#### validate()
-
-Sends a request to the [VIES API][VIES API] and validates the last set VAT-ID value.
-
----
 #### isValid()
 - return: `boolean`
 
@@ -70,7 +65,7 @@ Internally triggers `$this->validate()` if it hasn't been executed yet, and retu
 
 Check if passed VAT-ID is valid:
 ```php
-$vatId = new EuVatValidation('IT01775560442');  
+$vatId = new \Pilou\EuVat\Validation('IT01775560442');  
 print_r($vatId->isValid());
 
 // Output
@@ -80,7 +75,7 @@ true
 
 Check multiple VAT-ID's:
 ```php
-$vatId = new EuVatValidation;
+$vatId = new \Pilou\EuVat\Validation;
 
 $vatId->setVatId('IT01775560442');
 print_r($vatId->isValid());             // Output: true
@@ -92,8 +87,8 @@ print_r($vatId->isValid());             // Output: false
 
 Display all VAT-ID details:
 ```php
-$vatId = new EuVatValidation('IT01775560442');
-print_r($vatId->getVatIdExtended());
+$vatId = new \Pilou\EuVat\Validation('IT01775560442');
+print_r($vatId->toArray());
 
 // Output
 Array (
@@ -109,7 +104,7 @@ Array (
 
 Using all public class functions:
 ```php
-$vatId = new EuVatValidation;
+$vatId = new \Pilou\EuVat\Validation;
 $vatId->setVatId('IT01775560442');
 $vatId->validate();
 
